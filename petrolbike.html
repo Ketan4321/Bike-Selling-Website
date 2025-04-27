@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Showroom</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            overflow-x: hidden;
+            font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            color: #fff;
+        }
+        .wellcome {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url('/image1/main_bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .wellcomeMsg {
+            text-align: center;
+            color: #fff;
+        }
+        .wellcomeMsg .headTag {
+            font-size: 80px;
+            font-weight: bold;
+            letter-spacing: 15px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        .wellcomeMsg .subTag {
+            font-size: 20px;
+            padding: 25px 0;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            word-spacing: 1.5px;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+        .bike-pallet {
+            background-color: #333;
+            border: 1px solid #444;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.2s;
+            margin: 0;
+        }
+        .bike-pallet:hover {
+            transform: scale(1.05);
+            background-color: #444;
+        }
+        .bike-pallet img {
+            width: 100%;
+            height: auto;
+        }
+        .bike-details {
+            padding: 15px;
+            background-color: #222;
+        }
+        .bike-details h3 {
+            margin: 0 0 10px;
+            font-size: 24px;
+        }
+        .bike-details p {
+            margin: 0;
+            font-size: 18px;
+        }
+        footer {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            background-color: #22345d;
+            z-index: 100;
+            padding: 1.5%;
+            text-align: right;
+            color: white;
+        }
+        .btn-orange {
+            background-color: #e47618;
+            color: white;
+            font-size: 14px;
+            padding: 5px 18px;
+            font-weight: bold;
+            text-transform: capitalize;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wellcome">
+        <div class="wellcomeMsg">
+            <div class="headTag">Welcome to MotoDeal</div>
+            <div class="subTag">Explore Our Latest Collection</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bike-pallet">
+            <img src="/img/l1.png" alt="Bike 1">
+            <div class="bike-details">
+                <h3>Kawasaki Ninja ZX-10R</h3>
+                <p>Price: 20,00,000/-</p>
+            </div>
+        </div>
+        <div class="bike-pallet">
+            <img src="/img/l2.png" alt="Bike 2">
+            <div class="bike-details">
+                <h3>Kawasaki Ninja 650</h3>
+                <p>Price: 7,00,000/-</p>
+            </div>
+        </div>
+        <div class="bike-pallet">
+            <img src="/img/l3.png" alt="Bike 3">
+            <div class="bike-details">
+                <h3>Yamaha YZF</h3>
+                <p>Price: 20,00,000/-</p>
+            </div>
+        </div>
+        <div class="bike-pallet">
+            <img src="/img/l4.png" alt="Bike 4">
+            <div class="bike-details">
+                <h3>KTM RC 390</h3>
+                <p>Price: 3,00,000/-</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <button class="btn-orange">Contact Us</button>
+    </footer>
+</body>
+</html>

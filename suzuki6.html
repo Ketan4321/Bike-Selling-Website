@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Details</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #141E30, #243B55); /* Dark gradient background */
+            color: #f5f5f5; /* Light text color */
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #1E293B; /* Dark background */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .navbar .brand img {
+            height: 35px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .brandname p {
+            font-size: 22px;
+            font-weight: bold;
+            color: #FFD700; /* Golden color */
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: #f5f5f5; /* Light text color */
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 15px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #FFD700;
+            color: #141E30;
+            border-radius: 10px;
+        }
+
+        /* Bike Details Section */
+        .bike-details {
+            padding: 20px 10px;
+            background-color: #1e1e1e;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .bike-info {
+            display: flex;
+            max-width: 1000px;
+            gap: 30px;
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        /* Left Side: Bike Image, Description, and Button */
+        .bike-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 2;
+        }
+
+        .bike-image-and-button {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .bike-content h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #FFD700; /* Golden color */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .bike-content img {
+            width: 300px; /* Reduced width */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .info {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #d0d0d0; /* Lighter text color */
+            background-color: #2C3E50;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .buy-button {
+            display: inline-block;
+            padding: 10px 40px;
+            font-size: 18px;
+            margin-top: 125px;
+            color: #1e1e1e;
+            background-color: #FFD700;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .buy-button:hover {
+            background-color: #FFC300;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Right Side: Specifications */
+        .specs {
+            background-color: #2C3E50;
+            border-radius: 10px;
+            flex: 1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .specs h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #FFD700; /* Golden color */
+            padding: 10px;
+        }
+
+        .specs ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .specs ul li {
+            font-size: 16px;
+            padding: 8px 10px;
+            border-bottom: 1px solid #444;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a class="brand" href="#">
+            <img src="brandlogo1.png" alt="MotoDeal Logo">
+        </a>
+        <div class="brandname">
+            <p>MotoDeal</p>
+        </div>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#models">Models</a>
+            <a href="#contact">Contact</a>
+            <a href="#login">Login/Register</a>
+        </div>
+    </div>
+
+    <!-- Bike Details Section -->
+    <section class="bike-details">
+        <div class="bike-info">
+            <div class="bike-content">
+                <h1>Suzuki Address 115</h1>
+                <div class="bike-image-and-button">
+                    <img src="suzuki6.jpg" alt="Suzuki GSX-S50">
+                    <a href="booknow.html" class="buy-button">Book Now</a>
+                </div>
+                <div class="info">
+                    <p><strong>Price:</strong> ₹112,999/-</p>
+                    <p>The Suzuki GSX-S150 streetfighter bike sits alongside its GSX-R150 sibling—both are Suzuki’s tributes to the GSX-R sport bike nameplate dating back to the 80s. The S150 promises to be as sporty as its predecessors through its nimble handling and great acceleration. This bike is available in the Philippines at a price of P112,800.</p>
+                    <p>The Suzuki GSX-S150 offers a number of goodies such as a multi-functional LCD instrument panel, a keyless ignition system, and an LED headlight.</p>
+                    <p>Moving on to the powertrain, this sporty bike packs a 147cc water-cooled engine that can churn out a maximum output of 19 hp and 14 Nm of torque. This power mill is then connected to a 6-speed return transmission.</p>
+                    <p>For the rider's safety, disc brakes on both wheels are there to ensure stopping prowess on both road and track.</p>
+                </div>
+            </div>
+
+            <div class="specs">
+                <h2>Specifications:</h2>
+                <ul>
+                    <li><strong>Engine Capacity:</strong> 147cc</li>
+                    <li><strong>Mileage:</strong> 70 km/l</li>
+                    <li><strong>Top Speed:</strong> 90 km/h</li>
+                    <li><strong>Weight:</strong> 102 kg</li>
+                    <li><strong>Fuel Tank Capacity:</strong> 10 liters</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

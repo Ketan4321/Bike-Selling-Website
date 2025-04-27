@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Categories - Bike Showroom</title>
+    <style>
+        *, *::after, *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            background-image: url('/image1/Main_bg.jpg');
+            color: #fff;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            text-align: center;
+            width: 100%;
+        }
+
+        .sectionHead {
+            font-size: 40px;
+            padding: 25px 0;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            word-spacing: 1.5px;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            overflow-x: auto; /* Allows horizontal scrolling if needed */
+            margin: 0 auto;
+            padding: 20px; /* Optional padding */
+        }
+
+        .category {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-decoration: none;
+            color: black;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+        .category img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .category h2 {
+            margin: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .category p {
+            font-size: 16px;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .category:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        .category:hover img {
+            filter: brightness(90%);
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 class="sectionHead">Bike Categories</h1>
+        <div class="categories">
+            <a href="petrolbike.html" class="category">
+                <img src="img/petrol.png" alt="Petrol Bikes">
+                <h2>Petrol Bikes</h2>
+                <p>Explore our range of petrol bikes known for their power and performance. Whether you are looking for a commuter bike or a sport bike, we have the perfect model for you.</p>
+            </a>
+            <a href="#electric-bikes" class="category">
+                <img src="img/electric.png" alt="Electric Bikes">
+                <h2>Electric Bikes</h2>
+                <p>Discover our eco-friendly electric bikes that offer a smooth and quiet ride. Perfect for city commuting, these bikes are cost-effective and environmentally friendly.</p>
+            </a>
+            <a href="#cng-bikes" class="category">
+                <img src="img/cng.png" alt="CNG Bikes">
+                <h2>CNG Bikes</h2>
+                <p>Check out our selection of CNG bikes, combining the benefits of low running costs and reduced emissions. These bikes are ideal for those who want to save on fuel expenses while being kind to the environment.</p>
+            </a>
+            <a href="#scooters" class="category">
+                <img src="img/scooter1.png" alt="Scooters">
+                <h2>Scooters</h2>
+                <p>Check out our selection of CNG scooters, combining the benefits of low running costs and reduced emissions. Ideal for those who want to save on fuel expenses while being environmentally conscious.</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

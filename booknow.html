@@ -1,0 +1,151 @@
+<?php
+session_start();
+
+// Check if the user is logged in (you can modify this to check the specific session variables you're using)
+if (!isset($_SESSION['id']) || !isset($_SESSION['email'])) {
+    // Redirect to login page if not logged in
+    header('Location: login.php');
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now Form</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+            max-width: 450px;
+            width: 100%;
+        }
+
+        h2 {
+            color: #ff5722;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ff9800;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="submit"],
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 25px;
+            border: none;
+            border-radius: 8px;
+            background-color: #333;
+            color: #ffffff;
+            font-size: 16px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:hover,
+        input[type="email"]:hover,
+        input[type="tel"]:hover,
+        select:hover {
+            background-color: #444;
+            box-shadow: 0px 0px 8px rgba(255, 152, 0, 0.5);
+        }
+
+        input[type="submit"] {
+            background-color: #ff5722;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            font-size: 18px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e64a19;
+            box-shadow: 0px 0px 10px rgba(230, 74, 25, 0.5);
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23ffffff" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14l-4.796-5.481c-.566-.647-.106-1.659.747-1.659h9.604c.854 0 1.313 1.012.747 1.659l-4.796 5.481a1 1 0 0 1-1.506 0z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 16px;
+        }
+
+        select option {
+            background-color: #333;
+            color: #ffffff;
+        }
+
+        #price {
+            background-color: #333;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: center;
+            color: #ff5722;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form action="booknow.php" method="post">
+        <h2>Book Now</h2>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);" title="Please enter a 10-digit phone number" required>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '');" title="Location must contain only letters and spaces" required>
+
+        <label for="brand">Select Brand:</label>
+        <select id="brand" name="brand" onchange="updateModels()" required>
+            <option value="">--Select Brand--</option>
+            <option value="suzuki">Suzuki</option>
+            <option value="honda">Honda</option>
+            <option value="bmw">BMW</option>
+            <option value="kawasaki">Kawasaki</option>
+            <option value="ktm">KTM</option>
+            <option value="royal_enfield">Royal Enfield</option>
+        </select>
+
+        <label for="model">Select Model:</label>
+        <select id="model" name="model" onchange="updatePrice()" required>
+            <option value="">--Select Model--</option>
+        </select>
+
+        <label for="price-display">Price:</label>
+        <div id="price-display">Select a model to see the price</div>
+        <input type="text" id="price-input" name="price" value="" readonly>
+
+        <input type="submit" value="Book Now">
+    </form>
+
+    <script src="booknow.js"></script>
+</body>
+</html>

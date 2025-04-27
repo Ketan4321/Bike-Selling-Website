@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Purchase Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #121212;
+            color: #f1f1f1;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #1e1e1e;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            background-color: #2c2c2c;
+            color: #f1f1f1;
+            border: 1px solid #444;
+            border-radius: 3px;
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: #888;
+        }
+        .form-group button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Bike Purchase Form</h2>
+    <form action="/save-bike-info" method="POST">
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+        <div class="form-group">
+            <label for="bike-model">Bike Model:</label>
+            <select id="bike-model" name="bike-model" required>
+                <option value="">Select a model</option>
+                <option value="Model1">Model 1</option>
+                <option value="Model2">Model 2</option>
+                <option value="Model3">Model 3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="address">Delivery Address:</label>
+            <textarea id="address" name="address" rows="4" placeholder="Enter your delivery address" required></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit">Submit Purchase</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

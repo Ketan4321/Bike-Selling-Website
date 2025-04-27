@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page with Validation</title>
+    <style>
+        /* Basic styling for the form */
+        .payment-form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f7f7f7;
+            border-radius: 8px;
+        }
+        .form-row {
+            margin-bottom: 20px;
+        }
+        .form-row label {
+            display: block;
+            margin-bottom: 6px;
+        }
+        .form-row input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #submit {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+        }
+        #submit:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="payment-form">
+        <h2>Payment Details</h2>
+        <form id="payment-form" method="post">
+            <div class="form-row">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($username); ?>" readonly>
+            </div>
+
+            <div class="form-row">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" readonly>
+            </div>
+
+            <div class="form-row">
+                <label for="cardholder-name">Cardholder Name</label>
+                <input type="text" id="cardholder-name" name="cardholderName" placeholder="Enter cardholder's name" required>
+                <div id="cardholder-name-error" class="error">Cardholder name is required.</div>
+            </div>
+
+            <div class="form-row">
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+                <div id="card-number-error" class="error">Invalid card number. Must be 16 digits.</div>
+            </div>
+
+            <div class="form-row">
+                <label for="expiry-date">Expiry Date (MM/YY)</label>
+                <input type="text" id="expiry-date" name="expiryDate" placeholder="MM/YY" required>
+                <div id="expiry-date-error" class="error">Invalid expiry date. Format must be MM/YY.</div>
+            </div>
+
+            <div class="form-row">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                <div id="cvv-error" class="error">Invalid CVV. Must be 3 digits.</div>
+            </div>
+
+            <button id="submit" type="submit">Pay Now</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Clear previous error messages
+            document.getElementById('card-number-error').style.display = 'none';
+            document.getElementById('expiry-date-error').style.display = 'none';
+            document.getElementById('cvv-error').style.display = 'none';
+
+            // Gather form data
+            const cardholderName = document.getElementById('cardholder-name').value;
+            const cardNumber = document.getElementById('card-number').value;
+            const expiryDate = document.getElementById('expiry-date').value;
+            const cvv = document.getElementById('cvv').value;
+
+            // Validate form data
+            const cardNumberRegex = /^\d{16}$/;
+            if (!cardNumberRegex.test(cardNumber)) {
+                document.getElementById('card-number-error').style.display = 'block';
+                return;
+            }
+
+            const expiryDateRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            if (!expiryDateRegex.test(expiryDate)) {
+                document.getElementById('expiry-date-error').style.display = 'block';
+                return;
+            }
+
+            const cvvRegex = /^\d{3}$/;
+            if (!cvvRegex.test(cvv)) {
+                document.getElementById('cvv-error').style.display = 'block';
+                return;
+            }
+
+            // Submit the form
+            document.getElementById('payment-form').submit();
+        });
+    </script>
+
+</body>
+</html>
